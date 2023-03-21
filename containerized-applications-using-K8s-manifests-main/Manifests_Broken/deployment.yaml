@@ -1,23 +1,24 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clo835-mock
   labels:
-    appname: node-app-deployment
+    appname: node-app
     component: frontend
+    owner: Darshil
 spec:
   selector:
     matchLabels:
-      appname: node-app-replicaset
+      appname: node-app
       component: frontend
   template:
     metadata:
       labels:
-        appname: node-app-pod
+        appname: node-app
         component: frontend
     spec:
       containers:
       - name: node-app
-        image: myappimage:v1.0
+        image: 307962083595.dkr.ecr.us-east-1.amazonaws.com/webapp:latestv.2
         ports:
         - containerPort: 5000
